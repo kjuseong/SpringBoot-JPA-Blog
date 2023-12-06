@@ -28,7 +28,6 @@ let index = {
 				
 			}).done(function(resp){
 				alert("회원가입이 완료되었습니다.");
-				alert(resp);
 				location.href= "/blog";
 			}).fail(function(error){
 				alert(JSON.stringify(error));

@@ -18,6 +18,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 //ORM - > Java(다른언어) Object -> 테이블로 매핑해주는 기술 
+// 스키마 변경하면 yml에서 create로 바꿔야 되요
 
 @Data
 @NoArgsConstructor
