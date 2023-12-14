@@ -17,8 +17,9 @@ public class UserApiController {
 	@Autowired
 	private UserService userService;
 	
+	
 	// save 요청 받는게 user 데이터
-	@PostMapping("/api/user")
+	@PostMapping("/auth/joinProc")
 	public ResponseDto<Integer> save(@RequestBody User user) {
 		System.out.println("UserApiController: save 호출됨");
 		// 실제로 DB에 insert를 하고 아래에서 return이 되면 됨
@@ -26,4 +27,21 @@ public class UserApiController {
 		userService.회원가입(user);
 		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); // 자바오브젝트를 JSON으로 변환해서 리턴(Jackson)
 	}
+	
+	
+	// spring security	
+	//스프링이 세션을 만들어서 저장을 해주고 그 값을 principal에 있음
+	
+//	@PostMapping("/api/user/login")
+//	public ResponseDto<Integer> login(@RequestBody User user, HttpSession session){
+//		System.out.println("UserApiController: login 호출됨");
+//		// 유저 객체로 로그인 정보(아이디 패스워드 받아줌)
+//		User principal =   userService.로그인(user); // principal(접근주체)
+//		
+//		if(principal != null) {
+//			session.setAttribute( "principal", principal);
+//		}
+//		return new ResponseDto<Integer>(HttpStatus.OK.value(), 1); 
+//	}
+	
 }

@@ -13,3 +13,13 @@ import com.cos.blog.model.User;
 public interface UserRepository extends JpaRepository<User, Integer>{
 
 }
+
+
+
+// JPA Naming 쿼리
+// 실제로 findByUsernameAndPassword 이러한 함수명은 없으나 이름을 이렇게하면
+// SELECT * FROM user WHERE username = ?(첫번째 파라미터) AND password = ?(두번째 파라미터);
+// User findByUsernameAndPassword(String username, String password);
+
+//	@Query(value="SELECT * FROM user WHERE username = ?1 AND password = ?2", nativeQuery = true)
+//	User login(String username, String password);
